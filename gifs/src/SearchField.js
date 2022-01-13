@@ -6,6 +6,7 @@ function SearchFeirld(props) {
     
     function handleChange(e){
         setInput (input => e.target.value)
+        console.log("send input")
     }
 
     return (

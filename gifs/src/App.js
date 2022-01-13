@@ -4,8 +4,10 @@ import GifCard from "./GifCard"
 import React from 'react';
 
 function App() {
+  const [userInput, setUserInput] = React.useState("")
   function handleClick(input){
-    console.log(input)
+    setUserInput(input)
+    console.log(userInput)
   }
 
   return (
@@ -13,7 +15,9 @@ function App() {
         <Search 
           onClick={handleClick}
         />
-        <GifCard/>
+        <GifCard
+          input = {userInput}
+        />
     </div>
   );
 }
