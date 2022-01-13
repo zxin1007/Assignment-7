@@ -1,6 +1,7 @@
 import './App.css';
 import Search from "./SearchField"
 import GifCard from "./GifCard"
+import Header from "./Header"
 import React from 'react';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
 
   return (
     <div className="App">
+        <header>
+          <Header />
+        </header>
         <Search 
           onClick={handleClick}
         />
