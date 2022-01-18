@@ -10,25 +10,28 @@ function App() {
   const [gifs, setGifs] = React.useState(0)
   const [title, setTitle] = React.useState("")
 
-  function handleSumbit(event,input,mode){
+  async function handleSumbit(event,input,mode){
     event.preventDefault();
-    if (mode===1){
+    if (mode===1&&input){
       setTitle(input)
-      fetch(`http://api.giphy.com/v1/gifs/search?q=${input}&api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
-      .then(res => res.json())
-      .then(json => setGifs(json.data.map(data => data)))
+      const res = await fetch(`http://api.giphy.com/v1/gifs/search?q=${input}&api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
+      const json =await res.json()
+      setGifs(json.data.map(data => data))
     } else if (mode===2){
       setTitle("Trending Now")
-      fetch(`http://api.giphy.com/v1/gifs/trending?api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
-      .then(res => res.json())
-      .then(json => setGifs(json.data.map(data => data)))
+      const res = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
+      const json =await res.json()
+      setGifs(json.data.map(data => data))
+
+      document.getElementById("input").value=""
     }else if (mode===3){
       setTitle("Random")
-      fetch(`http://api.giphy.com/v1/gifs/random?api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
-      .then(res => res.json())
-      .then(json => setGifs(()=>json.data.images.original))
+      const res = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=G00w4FBpmxpQL21Nv3OMxMMoB9FPvLBO`)
+      const json =await res.json()
+      setGifs(()=>json.data.images.original)
+
+      document.getElementById("input").value=""
   }
-    document.getElementById("input").value=""
   }
 
   return (
