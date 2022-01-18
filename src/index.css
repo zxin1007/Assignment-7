@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+}
+
+.gifs{
+  margin-top: 45px;
+}
+
+img{
+  margin: 10px 10px;
+  width: 320px;
+  height: 320px;
+}
+
+input, button{
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px 5px;
+  margin-bottom: 0px;
+}
+
+header {
+  border: solid black 5px;
+  border-left: unset;
+  border-right: unset;
+  margin: 5px 0px;
+}
+
+.options{
+  width: 320px;
+  height: 25px;
+  margin: 0 auto;
+  display: flex;
+  gap: 15px;
+  justify-content: left;
+  text-decoration: underline;
+}
+
+.btn{
+  border: none;
+  background-color: white;
+  margin-top: 0px;
+}
